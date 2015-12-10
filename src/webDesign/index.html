@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>UniFood - A bridge that connects people through food</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/1-col-portfolio.css" rel="stylesheet">
+
+
+</head>
+
+<body onload="kuckelikuu()">
+
+    <!-- Navigation -->
+    <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="#">UniFood</a>
+            </div>
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav">
+                    <li>
+                        <a href="#">My profile/Sign up</a>
+                    </li>
+                    <li>
+                        <a href="#">Join event</a>
+                    </li>
+                    <li>
+                        <a href="create_event.html">Host event</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container -->
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+
+        <!-- Page Heading -->
+        <div class="row">
+            <div class="col-lg-12">
+                <h1 class="page-header">Events
+                    <small>Book an event of interest</small>
+                </h1>
+            </div>
+        </div>
+        <!-- /.row -->
+
+        <!-- Project One -->
+        <!--
+        <div class="row">
+            <div class="col-md-7">
+                <a href="#">
+                    <img class="img-responsive" src="img/avocado.jpg" width="400" height="100" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h3>SPANISH FOOD</h3>
+                <h4>SPANISH CHEESE & AVOCADO QUESADILLAS</h4>
+                <p>
+                <ul>
+                    <li>Otaniemi, Jämeräntaival 1</li>
+                    <li>Date: 23.10</li>
+                    <li>Time: 8 PM</li>
+                    <li>4 Available seats</li>
+                </ul>
+                </p>
+                <a class="btn btn-primary" href="#">Book event <span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </div>
+        -->
+        <!-- /.row -->
+<!--
+        <hr>
+-->
+        <!-- Project Two -->
+        <!--
+        <div class="row">
+            <div class="col-md-7">
+                <a href="#">
+                    <img class="img-responsive" src="img/cook.jpg" width="400" height="100" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h3>CHINESE FOOD</h3>
+                <h4>Chicken fried rice</h4>
+                <p><ul>
+                    <li>Otaniemi, Otaranta 8</li>
+                    <li>Date: 30.10</li>
+                    <li>Time: 17 PM</li>
+                    <li>3 Available seats</li>
+                </ul></p>
+                <a class="btn btn-primary" href="#">Book event <span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </div>
+        -->
+        <!-- /.row -->
+<!--
+        <hr>
+-->
+        <!-- Project Three -->
+        <!--
+        <div class="row">
+            <div class="col-md-7">
+                <a href="#">
+                    <img class="img-responsive" src="img/spices.jpg" width="400" height="100" alt="">
+                </a>
+            </div>
+            <div class="col-md-5">
+                <h3>TRADITIONAL INDIAN FOOD</h3>
+                <h4>Vegetarian dish</h4>
+                <p><ul>
+                    <li>Otaniemi, Servin Maijan Tie 3</li>
+                    <li>Date: 01.11</li>
+                    <li>Time: 17 PM</li>
+                    <li>4 Available seats</li>
+                </ul></p>
+                <a class="btn btn-primary" href="#">Book event <span class="glyphicon glyphicon-chevron-right"></span></a>
+            </div>
+        </div>
+        -->
+        <!-- /.row -->
+
+    </div>
+    <!-- /.container -->
+
+    <!-- jQuery -->
+    <script src="js/jquery.js"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="js/bootstrap.min.js"></script>
+
+    <script>
+    function kuckelikuu() {
+	var containers = document.getElementsByClassName("container");
+	var container = containers[1];
+
+	console.log("container: ", container);
+
+	console.log("1");
+	var xhttp = new XMLHttpRequest();
+
+	xhttp.onreadystatechange = function () {
+	    console.log("onreadystate");
+	    if (xhttp.readyState == 4 && xhttp.status == 200) {
+		console.log("TEXT: " + xhttp.responseText);
+		var events = JSON.parse(xhttp.responseText);
+
+		events.forEach(function (event) {
+		    var s;
+		    console.log("Event: " + event.title);
+		    var row = document.createElement('div');
+		    
+		    var image = document.createElement('div');
+		    image.setAttribute('class', 'col-md-7');
+		    s = '';
+		    s = s.concat('<a href="#">');
+		    s = s.concat('<img class="img-responsive" ');
+		    s = s.concat('src="' + event.image + '" ');
+		    s = s.concat('width="400" height="100" alt="">');
+		    console.log("IMAGE:" + s);
+		    image.innerHTML = s;
+		    row.appendChild(image);
+		    
+		    var content = document.createElement('div');
+		    content.setAttribute('class', 'col-md-5');
+		    s = '';
+		    s = s.concat('<h3>' + event.title + '</h3>');
+		    s = s.concat('<h4>' + event.category + '</h4>');
+		    s = s.concat('<p>' + event.address + '</p>');
+		    s = s.concat('<a class="btn btn-primary" href="#">Book event <span class="glyphicon glyphicon-chevron-right"></span></a>');
+		    content.innerHTML = s;
+		    row.appendChild(content);
+
+		    container.appendChild(row);
+		});
+	    }
+	};	    
+
+	xhttp.open("GET", "getEvents", true);
+	xhttp.send();
+
+	/*
+	var div_row = document.createElement('div');
+
+	var div_col_md_7 = document.createElement('div');
+	div_col_md_7.setAttribute('class', 'col-md-7');
+	div_row.appendChild(div_col_md_7);
+
+	var div_col_md_5 = document.createElement('div');
+	div_col_md_5.setAttribute('class', 'col-md-5');
+	var s = '';
+	s = s.concat('<h3>FINNISH FOOD</h3>');
+	s = s.concat('<h4>RAINDEER AND LINGONBERRY</h4>');
+	s = s.concat('<a class="btn btn-primary" href="#">Book event <span class="glyphicon glyphicon-chevron-right"></span></a>');
+	div_col_md_5.innerHTML = s;
+	div_row.appendChild(div_col_md_5);
+	
+	container.appendChild(div_row);
+	*/
+    }
+    </script>
+</body>
+
+</html>
+)
