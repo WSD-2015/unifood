@@ -1,3 +1,13 @@
+if (!process.env.UNIFOOD_DATABASE_URL) {
+    console.log("No database URL defined.");
+    console.log("Execute");
+    console.log("export UNIFOOD_DATABASE_URL='postgres://...'");
+    console.log("before starting the server.");
+    process.exit();
+}
+
+var DATABASE_URL=process.env.UNIFOOD_DATABASE_URL;
+
 var pg = require('pg');
 var bodyParser = require('body-parser');
 var client;
