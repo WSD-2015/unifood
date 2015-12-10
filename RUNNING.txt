@@ -1,0 +1,38 @@
+How to run the server
+=====================
+
+Prerequisites: node.js installed (>= v4.2.1).
+Downloads & instructions from https://nodejs.org/en/
+
+1) Open a terminal window
+
+2) Create the environment variable UNIFOOD_DATABASE_URL, which holds the
+   postgress database URL. Use this form:
+   
+   export UNIFOOD_DATABASE_URL='postgres://blahblah@this-that.eu-west-1.compute.amazonaws.com/blahblah?ssl=true'
+
+ 
+32) Go to the src folder
+
+   $ cd src
+
+4) Start the server
+
+   $ node server.js
+
+   you will see this:
+
+     Connecting to database...
+     Connected to postgres!
+     Starting server
+     Server Unifood demo gala example app listening at http://:::3002
+
+5) Start your browser and go to http://localhost:3002
+
+6) To stop the server, type
+
+      Cmd-c
+
+   in the terminal window.
+
+   
