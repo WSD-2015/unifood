@@ -1,7 +1,3 @@
-/*var DATABASE_URL= 'postgres://kmncygcolvmkzj:oo7kPQS3wgQzUnl-OfTrUrugtW@ec2-54-247-170-228.eu-west-1.compute.amazonaws.com/dcvjcsiroa6s9?ssl=true';
-*/
-var DATABASE_URL= 'postgres://bszdlrlafooarn:9N2LJu1QJp7B_-nqx7z4chpNah@ec2-46-137-72-123.eu-west-1.compute.amazonaws.com/datv36ra3frbbp?ssl=true';
-
 var pg = require('pg');
 var bodyParser = require('body-parser');
 var client;
